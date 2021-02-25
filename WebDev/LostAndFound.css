@@ -1,0 +1,184 @@
+* {
+  font-family: Garamond, serif;
+}
+
+header {
+  background-color: #7e0001;
+  color: white;
+  background: url(images/OU.jpg) no-repeat;
+  background-size: cover;
+  height: 66px;
+  width: 100%;
+}
+
+div {
+  padding:
+  margin:
+}
+
+body {
+  margin: 0;
+  padding: auto;
+  background-color: white;
+}
+
+ nav.navigation li {
+    width: 25%;
+    text-transform:uppercase;
+ }
+ 
+ nav.navigation > ul > li {
+    display: block;
+    float: left;
+    
+ }
+ 
+  nav.navigation a {
+    display: block;
+    font-size: 0.8em;
+    line-height: 1.2em;
+    text-align: center;
+ }  
+ 
+ nav.navigation a:link, 
+ nav.navigation a:visited {
+    color: rgb(132, 23, 25);
+ }
+ 
+ nav.navigation a:hover, 
+ nav.navigation a:active {
+    background-color: rgb(173, 173, 173);
+ }
+ 
+ /* Style inputs, select elements and textareas */
+ 
+input[type=password], input[type=text], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* Style the label to display next to the inputs */
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+/* Style the submit button */
+button, input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input + input{
+	margin-top: 10pt;
+}
+
+.loginHead{
+	height: 40pt;
+	background-size: auto;
+}
+
+.loginBod{
+	background-color: DarkGrey
+}
+
+/* Style the container */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.passContainer {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 50px;
+  padding-top: 0px;
+  margin: auto;
+  width: 30%;
+  margin-top: 70pt
+}
+
+/* Floating column for labels: 25% width */
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+a:link {
+    color: black; 
+    background-color: transparent; 
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: rgba(110, 110, 110, 0.9);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: blue;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+p {
+
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+    header: {
+       height: 150px;
+       width: 100%;
+    }
+  }
+}
