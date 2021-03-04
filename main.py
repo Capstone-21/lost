@@ -3,6 +3,8 @@ from __future__ import print_function
 # [START gae_flex_websockets_app]                                                                                                     
 from flask import Flask, render_template
 app = Flask(__name__)
+app.config["CACHE_TYPE"] = "null"
+app.static_folder='static'
 
 @app.route('/')
 def index():
