@@ -1,0 +1,28 @@
+body
+{
+    background-color: rgba(255, 247, 187, 0.5);
+}
+
+a:link {
+    color: black; 
+    background-color: transparent; 
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: rgba(110, 110, 110, 0.9);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: blue;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }

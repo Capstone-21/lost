@@ -1,0 +1,48 @@
+html{
+	background-color: rgb(255, 255, 255);
+}
+
+body{
+	margin: auto;
+	max-width: 1440px;
+	min-width: 1024px;
+	color: rgb(132, 23, 25);
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Page Header Styles */
+
+body > header > img {
+    display: block;
+    width: 100%;
+ }
+ 
+ body > header > nav.navigation li {
+    width: 25%;
+    text-transform:uppercase;
+ }
+
+ /* Navigation List Styles */
+
+nav.navigation > ul > li {
+    display: block;
+    float: left;
+    
+ }
+ 
+ nav.navigation a {
+    display: block;
+    font-size: 1.4em;
+    line-height: 1.8em;
+    text-align: center;
+ }  
+ 
+ nav.navigation a:link, 
+ nav.navigation a:visited {
+    color: rgb(132, 23, 25);
+ }
+ 
+ nav.navigation a:hover, 
+ nav.navigation a:active {
+    background-color: rgb(173, 173, 173);
+ } 
