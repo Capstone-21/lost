@@ -11,6 +11,10 @@ header {
   width: 100%;
 }
 
+#main{
+  clear:left;
+}
+
 div {
   padding:
   margin:
@@ -25,6 +29,7 @@ body {
  nav.navigation li {
     width: 25%;
     text-transform:uppercase;
+    padding-bottom: 6px;
  }
  
  nav.navigation > ul > li {
@@ -36,7 +41,7 @@ body {
   nav.navigation a {
     display: block;
     font-size: 0.8em;
-    line-height: 1.2em;
+    line-height: 2em;
     text-align: center;
  }  
  
@@ -153,6 +158,35 @@ a:link {
     color: yellow;
     background-color: transparent;
     text-decoration: underline;
+  }
+
+  .search-box {
+    margin: 0 auto;
+    width: 400px;
+    position: relative;
+    height: 90vh;
+  }
+  
+  .magglass {
+    width:56px;
+    height:50px;
+    position: absolute;
+    top: -8px;
+    left: -94px;
+    z-index: 10;
+  }
+
+  .search-txt {
+    float: left;
+    width: 80px;
+  }
+
+  .button{
+    position: absolute;
+    width: 190px;
+    left: 425px;
+    top: -13px;
+
   }
 
 p {

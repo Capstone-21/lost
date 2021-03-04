@@ -57,12 +57,37 @@
 			  <label for="Tags">Tags</label>
 			</div>
 			<div class="col-75">
-			  <input type="text" id="tags" name="tags" placeholder="Item tags">
+			  <input type="checkbox" id="tag1" name="tag1" placeholder="Item tags">
+			  <label for="tag1"> Valuable</label><br>
+			  <input type="checkbox" id="tag2" name="tag2" placeholder="Item tags">
+			  <label for="tag2"> Electronic</label><br>
+			  <input type="checkbox" id="tag3" name="tag3" placeholder="Item tags">
+			  <label for="tag3"> Collectible</label><br>
+			  <input type="checkbox" id="tag4" name="tag4" placeholder="Item tags">
+			  <label for="tag4"> Textbook</label><br>
+			  <input type="checkbox" id="tag5" name="tag5" placeholder="Item tags">
+			  <label for="tag5"> Backpack</label><br>
 			</div>
 		  </div>
 		  <div class="row">
-			<input type="submit" value="Submit">
+			<input type="submit" value="Submit" onclick="send()">
 		  </div>
+		  <script>
+		  function send(){
+		  var xhr = new XMLHttpRequest();
+			xhr.open("POST", yourUrl, true);
+			xhr.setRequestHeader('Content-Type', 'application/json');
+			xhr.send(JSON.stringify({
+			"datetime": document.getElementById("date").value,
+			"description": document.getElementById("description").value,
+			"tag1": document.getElementById("tag1").value,
+			"tag2": document.getElementById("tag2").value,
+			"tag3": document.getElementById("tag3").value,
+			"tag4": document.getElementById("tag4").value,
+			"tag5": document.getElementById("tag5").value
+			}));
+		  }
+		  </script>
 		</form>
 	</div>
 	

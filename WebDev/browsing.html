@@ -6,7 +6,7 @@
    <link href="LostAndFound.css" rel="stylesheet" />
 </head>
 <!-- -->
-<body>
+
 	<header>   	
     </header>
 	<h1>
@@ -18,27 +18,98 @@
 	    		</ul>
 	    	</nav>
 		</h1>
-        <br>
 
-        <p>Please contact support for additional help finding your item <br></p>
-
-        <hr>
+<body>
+	<!-- create empty "tokens" unordered list for search terms -->
+	<ul id="tokens"> </ul>
         
-        <!-- This is a nice color to use later
-            rgba(255, 247, 187, 0.5)
-        -->
-	
+	<!--      Search box     -->
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="search-box">
+		<div class="magglass">
+			<img src="images/search.svg" alt="Magnifying glass image">
+		</div>
+		<input id="search-txt" type="text" name="" placeholder="Type to search">
+		<a class="search-btn" href="#">
+			<img src="images/submit.svg" alt="submit" class="button" onclick="parseText();"> <!-- onclick:search();-->
+		</a>
+	</div>
+
+	<!-- for now, parse and print search terms on click of button -->
+	<script>
+		//var output = '';
+		//for(var i=0; i<tokens.length; i++)
+		//{
+		//	output += '<li>' +tokens[i] + '</li>'
+		//}
+		//document.getElementById('tokens').innerHTML = output;
+
+		function parseText()
+		{
+			var search_text = document.getElementById("search-txt").value;
+			//var formData = 
+			var searchterm = "";
+			var searchword = "";
+			const words = search_text.split(' ');
+			
+			var jsonObjtxt = '{';
+			//var jsonObj = JSON.parse(jsonObjtxt);
+			
+			for(var i=0; i<words.length; i++)
+			{
+				searchterm = "search_term_" + i.toString();	// need i.tostring() ?
+				searchword = words[i].toString();
+				jsonObjtxt = jsonObjtxt + searchterm + '":"' + searchword + '"';
+				if (i != words.length-1)
+				{
+					jsonObjtxt = jsonObjtxt + ', '
+				}
+			}
+			jsonObjtxt = jsonObjtxt + '}';
+
+			window.alert(jsonObjtxt);
+			//jsonObj = JSON.parse(jsonObjtxt);
+			//window.alert(JSON.stringify(jsonObjtxt));
+
+			// send POST request
+			sendPost();
+		}
+
+		function sendPost()
+		{
+			//var xhr = new XMLHttpRequest();
+			//xhr.open("POST", yourUrl, true);
+			//xhr.setRequestHeader('Content-Type', 'application/json');
+			//xhr.send(JSON.stringify({
+    		//value: value
+			//}));
+		}
+		
+
+		
+
+	</script>
 	
 	<section id="main">
+		<p>Please contact support for additional help finding your item <br></p>
+
+		
+        <hr>
 		<img src="placeholder.png" alt="Welcome to OU Lost and Found" />
 		<p>For now we can use this home page to test google cloud platform and
             DBMS functionality. Later these functionalities will be located to the 
             appropriate page. </p>
 	</section>  
 	
-	<footer>
-		<p>OU Lost and Found &#8226; OU Lost and Found Address</p>
-	</footer>
+	
    
 </body>
+
+<footer>
+	<p>OU Lost and Found &#8226; OU Lost and Found Address</p>
+</footer>
+
 </html>
