@@ -1,12 +1,1 @@
-runtime: python27
-api_version: 1
-threadsafe: true
-
-handlers:
-- url: /
-  static_files: WebDev/browsing.html
-  upload: WebDev/browsing.html
-
-- url: /(.*)
-  static_files: WebDev/
-  upload: WebDev/(.*)
+runtime: python38
