@@ -1,4 +1,6 @@
 steps:
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["app", "deploy"]
+- name: "python"
+  args: ["database.py"]
 timeout: "1600s"
