@@ -3,7 +3,7 @@
 <head>
    <meta charset="utf-8" />
    <title>OU Lost and Found</title>
-   <link href="LostAndFound.css" rel="stylesheet" />
+   <link href="../static/lfStyle.css" rel="stylesheet" />
 </head>
 <!-- -->
 
@@ -28,13 +28,14 @@
 	<br>
 	<br>
 	<br>
-	<div class="search-box">
+	<div class="search-box" id="search-box">
 		<div class="magglass">
-			<img src="images/search.svg" alt="Magnifying glass image">
+			<img src="../static/images/search.svg" alt="Magnifying glass image">
 		</div>
 		<input id="search-txt" type="text" name="" placeholder="Type to search">
 		<a class="search-btn" href="#">
-			<img src="images/submit.svg" alt="submit" class="button" onclick="parseText();"> <!-- onclick:search();-->
+			<img src="../static/images/submit.svg" alt="submit" class="button" onclick="parseText(); showResults();"> 
+			<!-- we will move showResults() from onclick to being called in parseText() when we get data coming from backend-->
 		</a>
 	</div>
 
@@ -55,39 +56,47 @@
 			var searchword = "";
 			const words = search_text.split(' ');
 			
-			var jsonObjtxt = '{';
-			//var jsonObj = JSON.parse(jsonObjtxt);
+			var Obj = {};  //creates an empyt object. note not yet a JSON object
 			
 			for(var i=0; i<words.length; i++)
 			{
-				searchterm = "search_term_" + i.toString();	// need i.tostring() ?
+				searchterm = "search_term_".concat(i.toString());	// need i.tostring() ?
 				searchword = words[i].toString();
-				jsonObjtxt = jsonObjtxt + searchterm + '":"' + searchword + '"';
-				if (i != words.length-1)
-				{
-					jsonObjtxt = jsonObjtxt + ', '
-				}
+				var tempObj = {}; //creates an empty object, which will be added to Obj
+				tempObj[searchterm] = searchword; //adds search_term_i : searchword to the tempObj
+				Obj = {...Obj, ...tempObj} //concat tempObj to Obj
 			}
-			jsonObjtxt = jsonObjtxt + '}';
+			
 
-			window.alert(jsonObjtxt);
+			//window.alert(jsonObjtxt);
 			//jsonObj = JSON.parse(jsonObjtxt);
 			//window.alert(JSON.stringify(jsonObjtxt));
 
 			// send POST request
-			sendPost();
+			sendPost(JSON.stringify(Obj)); //convert Obj to JSON string and send to sendPost method
+
+			// display results
+			// showResults() // should take in results of post request
 		}
 
-		function sendPost()
+		function sendPost(jsonString)
 		{
-			//var xhr = new XMLHttpRequest();
-			//xhr.open("POST", yourUrl, true);
-			//xhr.setRequestHeader('Content-Type', 'application/json');
-			//xhr.send(JSON.stringify({
-    		//value: value
-			//}));
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "search", true);
+			xhr.setRequestHeader('Content-Type', 'application/json');
+			xhr.send(jsonString);
+			//window.alert(xhr.response) //Testing for pulling data from the endpoint.
 		}
 		
+		function showResults()
+		{
+			var result = document.createElement("p");
+			result.id = "text-results"
+			var someText = document.createTextNode("This will be some text results");
+			result.appendChild(someText);
+			var search_results = document.getElementById("search-box");
+			search_results.appendChild(result);
+		}
 
 		
 

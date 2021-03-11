@@ -1,10 +1,8 @@
 # limitations under the License.                                                                                                      
 from __future__ import print_function
 # [START gae_flex_websockets_app]                                                                                                     
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
-app.config["CACHE_TYPE"] = "null"
-app.static_folder='static'
 
 @app.route('/')
 def index():
@@ -21,6 +19,20 @@ def submit():
 @app.route('/lfaboutUs.html')
 def about():
     return render_template('lfaboutUs.html')
+    
+@app.route('/submit', methods = ['POST', 'GET'])
+def submitInfo():
+    if request.method == 'POST':
+        content = request.get_json()
+        print(content)
+        return "success" #placeholder return value
+        
+@app.route('/search', methods = ['POST', 'GET'])
+def browsingSearch():
+    if request.method == 'POST':
+        content = request.get_json()
+        print(content)
+        return "success" #placeholder return value
     
 if __name__ == "__main__":
     app.run(threaded=True, port=80)

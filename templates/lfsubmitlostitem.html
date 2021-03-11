@@ -3,7 +3,7 @@
 <head>
    <meta charset="utf-8" />
    <title>OU Lost and Found</title>
-   <link href="/../LostAndFound.css" rel="stylesheet" />
+   <link href="../static/lfStyle.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -27,7 +27,7 @@
 	</section>  
 
 	<div class="container">
-		<form action="action_page.php">
+		<form action="lfsubmitlostitem.html">
 		  <div class="row">
 			<div class="col-25">
 			  <label for="image">Image</label>
@@ -75,16 +75,16 @@
 		  <script>
 		  function send(){
 		  var xhr = new XMLHttpRequest();
-			xhr.open("POST", yourUrl, true);
+			xhr.open("POST", "submit", true);
 			xhr.setRequestHeader('Content-Type', 'application/json');
 			xhr.send(JSON.stringify({
 			"datetime": document.getElementById("date").value,
 			"description": document.getElementById("description").value,
-			"tag1": document.getElementById("tag1").value,
-			"tag2": document.getElementById("tag2").value,
-			"tag3": document.getElementById("tag3").value,
-			"tag4": document.getElementById("tag4").value,
-			"tag5": document.getElementById("tag5").value
+			"tag1": document.getElementById("tag1").checked,
+			"tag2": document.getElementById("tag2").checked,
+			"tag3": document.getElementById("tag3").checked,
+			"tag4": document.getElementById("tag4").checked,
+			"tag5": document.getElementById("tag5").checked
 			}));
 		  }
 		  </script>
